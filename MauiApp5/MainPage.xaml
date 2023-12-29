@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiApp5.MainPage" 
+             x:Name="this"
+             Shell.NavBarIsVisible="False">
+    <ScrollView VerticalOptions="FillAndExpand">
+        <ListView VerticalOptions="FillAndExpand" ItemsSource="{Binding ColoredTiles}">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Grid HeightRequest="{Binding HalfPageHeight, Source={x:Reference Name=this}}" BackgroundColor="{Binding Color}" Padding="10">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*" />
+                                <RowDefinition Height="*" />
+                            </Grid.RowDefinitions>
+                            <Label HorizontalOptions="Center" Text="{Binding HexValue}"
+                               FontAttributes="Bold" />
+                            <Button IsVisible="{Binding CanControlAnotherTile}" HorizontalOptions="Center" Command="{Binding BindingContext.ChangeColorCommand, Source={x:Reference Name=this}}" Grid.Row="1" Text="Update next cell color"></Button>
+                        </Grid>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </ScrollView>
+</ContentPage>

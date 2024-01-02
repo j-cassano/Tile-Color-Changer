@@ -23,7 +23,7 @@ namespace MauiApp5
                 },
                 new ColoredTile
                 {
-                    HexValue = Colors.Red.ToHex(),
+                    HexValue = Colors.Green.ToHex(),
                     Color = Colors.Green
                 }
             };
